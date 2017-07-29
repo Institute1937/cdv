@@ -7,6 +7,9 @@ make start
 
 Brings up both containers
 
+* Client runs on http://localhost:6800
+* Server runs on http://localhost:3003 
+
 TODO
 ----------------
 [√] Make JS container<br>
