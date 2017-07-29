@@ -8,6 +8,7 @@ make start
 Brings up both containers
 
 TODO
+----------------
 [√] Make JS container<br>
 [√] Make Clojure container<br>
 [ ] Nginx
