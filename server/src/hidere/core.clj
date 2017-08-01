@@ -1,17 +1,12 @@
 (ns hidere.core
+  (:use [org.httpkit.server] [clojure.data.json :only [json-str]])
   (:gen-class))
-
-(defn -main
-  "I don't do a whole lot ... yet."
-  [& args]
-  (println "Hello, World!"))
-
-(defn now [] (java.util.Date.))
 
 (defn current-time [request]
   {:status 200
-   :headers {"Content-Type" "text/plain"}
-   :body (str (now))})
+   :headers {"Content-Type" "application/json"}
+   :body    (json-str {"message" "I'm from Clojure"})})
+
 
 
 (use 'ring.adapter.jetty)
