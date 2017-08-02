@@ -6,7 +6,8 @@ module.exports = options => {
     },
     devtool: 'source-map',
     devServer: {
-       port: 1998
+       port: 1998,
+       disableHostCheck: true
     },
   }
 }

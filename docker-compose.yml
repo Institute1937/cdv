@@ -18,4 +18,14 @@ services:
     working_dir: /src
     command: 'lein run'
     ports:
-      - 3003:3009
+      - 3009:3009
+
+  nginx:
+    build: proxy
+    # See the file nginx_proxy.conf
+    # It uses these links to connect you to the two containers
+    links:
+      - server  
+      - client  
+    ports:
+      - '80:80'
