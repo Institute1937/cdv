@@ -1,5 +1,7 @@
 start:
 	docker-compose up
+prod:
+	docker-compose -f docker-compose-prod.yml up -d
 
 server:
 	docker-compose up server

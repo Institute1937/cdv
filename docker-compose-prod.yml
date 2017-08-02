@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  client:
+    build:
+      context: client
+    volumes:
+    - "./client:/src"
+    - /src/node_modules
+    command: npm run prod
+    working_dir: /src
+    ports:
+      - 6800:1998
+
+  server:
+    build: server
+    volumes:
+    - "./server:/src"
+    working_dir: /src
+    command: 'lein run'
+    ports:
+      - 3009:3009
+
+  nginx:
+    build: proxy
+    # See the file nginx_proxy.conf
+    # It uses these links to connect you to the two containers
+    links:
+      - server  
+      - client  
+    ports:
+      - '80:80'
