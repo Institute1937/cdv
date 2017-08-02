@@ -5,15 +5,17 @@ Docker Template
 make start
 ```
 
-Brings up both containers
+Brings up three containers
 
-* Client runs on http://localhost:6800
-* Server runs on http://localhost:3003 
+* NGINX container runs everything on port 80
+* If developing in Matryoshka Vagrant box, mapping exists for port 2600
+* Client runs separately on port 6800
+* Server runs separately on port 3009
 
 TODO
 ----------------
 [√] Make JS container<br>
 [√] Make Clojure container<br>
-[ ] Nginx<br>
-[ ] Look at Depends On and linking of containers<br>
+[√] Nginx<br>
+[ ] Do we need network setup instead of linking the containers?<br>
 [ ] More containers - monitoring, mongod, redis?
