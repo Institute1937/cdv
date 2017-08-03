@@ -6,8 +6,10 @@ services:
       context: ./client
       dockerfile: Dockerfile.prod
     
-  clojure:
-    build: ./clojure
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile.prod
 
   nginx:
     build: ./proxy
@@ -15,4 +17,4 @@ services:
       - "80:80"
     links:
       - client
-      - clojure
+      - server
