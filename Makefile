@@ -13,4 +13,8 @@ local-client:
 local-server:
 	cd server && lein run
 
-
+deploy:
+	eval "$(docker-machine env marsden)"
+	docker-compose -f docker-compose.build.yml build
+	docker-compose -f docker-compose.build.yml up
+	
