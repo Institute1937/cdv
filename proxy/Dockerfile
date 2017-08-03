@@ -1,19 +1,5 @@
-FROM ubuntu:latest
+FROM nginx
 
-# Install Nginx.	
-RUN apt-get update && apt-get install -y nginx
+COPY nginx_proxy.conf /etc/nginx/conf.d/default.conf
 
-# Turn off daemon mode
-RUN echo "\ndaemon off;" >> /etc/nginx/nginx.conf
-
-# Copy nginx config
-COPY nginx_proxy.conf /etc/nginx/sites-enabled/default
-     		
-# Define default command.
-CMD ["nginx"]
-
-# Expose ports.
-EXPOSE 80
-       
-
-		
+CMD ["nginx", "-g", "daemon off;"]
