@@ -28,4 +28,4 @@ services:
       - server  
       - client  
     ports:
-      - '80:80'
+      - '8175:80'
